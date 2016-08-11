@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List</title>
+    <script type="text/javascript">
+      function addGroceries() {
+        var li = document.createElement('li');
+        //creates a blank space to add the input that will be added the ordered list = <li></li>
+        var inputItem = document.getElementById('userInput').value;
+         //var inputItem = document.getElementsByTagName('input')[0].value;
+        //alternate line
+        //contains the value the user typed into the input
+        li.innerHTML = inputItem;
+        //innerchild, this will put the value of inputItem ing/between the li tag.
+        var category = document.getElementById('category').value;
+        //this calls and reads the value of whatever is in category id.
+        li.setAttribute("class", category)
+        //sets the class of inputItem with value of category id.
+        console.log(li)
+        document.getElementsByTagName('ul')[0].appendChild(li);
+        // .appendChild will then add in the li tag and everything in it
+      };
+
+    </script>
+    <style>
+      .meat{
+        color: red;
+      }
+      .produce{
+        color: green;
+      }
+      .drinks{
+        color:blue;
+      }
+      .snacks{
+        color: purple;p0 dg
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grocery List</h1>
+    <ul>
+    </ul>
+    <select id="category">
+    <option value = "meat">Meat</option>
+    <option value = "produce">Produce</option>
+    <option value = "drinks">drinks</option>
+    <option value = "snacks">snacks</option>
+    <input id="userInput" type="text" name="name" value="">
+    <button onclick="addGroceries()">Add Groceries</button>
+  </body>
+</html>
