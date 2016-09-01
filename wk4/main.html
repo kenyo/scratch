@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- javascript snippets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm5Ud5VTRBQxwMtXfZ0UK4-yck-F81DHw&callback=initMap"
+    async defer></script>
+    <script src="maps.js"></script>
+
+  </head>
+  <body>
+    <div id="map">
+      <!-- maps.js will attach map to this div -->
+    </div>
+    <div class="marker-button">
+      <input onclick="clearMarker()" type=button value="Hide Marker">
+      <HideMarkerComponent />
+      <input onclick="addMarker()" type=button value="Show Marker">
+      <input onclick="toggleMarker()" type=button value="Toggle Marker">
+    </div>
+    <div class="lat-long">
+      <input onclick="setLatLong()" type=button value="Set New LatLong">
+    </div>
+
+
+
+
+    
+  </body>
+</html>
