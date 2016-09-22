@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var CalcButton = require('./CalcButton.jsx');
 
 var operatorObj = {};
 operatorObj['+'] = (x,y) => x + y;
@@ -23,10 +24,10 @@ var HelloWorld = React.createClass({
   onNumberButtonClick (x) {
     if (this.state.operator == null) {
       var val1 = parseInt(this.state.val1.toString().concat(x));
-      this.setState({ val1: val1 });
+      this.setState({ val1 });
     } else {
       var val2 = parseInt(this.state.val2.toString().concat(x));
-      this.setState({ val2: val2});
+      this.setState({ val2});
     }
   },
 
@@ -47,30 +48,42 @@ var HelloWorld = React.createClass({
 
   render: function() {
     var numberButtons = [0,1,2,3,4,5,6,7,8,9].map(x =>
-      <button key={x} onClick={() => this.onNumberButtonClick(x)}>{ x }</button>
+      <CalcButton
+        title={x}
+        key={x}
+        onClick={() => this.onNumberButtonClick(x)} />
     );
 
     var operatorButtons = ['+', '-', '*', '/'].map(x =>
-      <button key={x} onClick={() => this.onOperatorButtonClick(x)}>{ x }</button>
+      <CalcButton
+        title={x}
+        key={x}
+        onClick={() => this.onOperatorButtonClick(x)} />
     );
 
     return (
       <div>
         <h1>Calculator App!</h1>
+
         <p>{this.state.val1}</p>
         <p>{this.state.operator}</p>
         <p>{this.state.val2}</p>
+
         {numberButtons}
         <div>
           {operatorButtons}
         </div>
         <div>
-          <button onClick={() => this.onCalculateClick(this.state.operator)}>Calculate</button>
+        <CalcButton
+          onClick={() => this.onCalculateClick(this.state.operator)}
+          title={'Calculate'}/>
+
         </div>
         <div>
-          <button onClick={this.clearState}>Clear</button>
+          <CalcButton
+            title={'Clear'}
+            onClick={this.clearState}/>
         </div>
-
         <h2>Result: {this.state.result}</h2>
       </div>
     )
